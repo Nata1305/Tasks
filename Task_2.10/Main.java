@@ -3,13 +3,12 @@ public class Main {
 
         int[] numbers = {1, 2, 5, 45, 55, 55};
 
-        for (int i = 0; i < numbers.length; i++) {
-            for (int j = i + 1; j < numbers.length; j++) {
-                if (numbers[i] == numbers[j])
+        for (int i = 1; i < numbers.length; i++) {
+             if (numbers[i] == numbers[i-1])
                     System.out.println("Да");
                 else {};
-                
-            }
+
+
         }
     }
 }
