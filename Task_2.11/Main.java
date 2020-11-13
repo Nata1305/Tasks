@@ -11,10 +11,11 @@ public class Main {
 
         for (int i = 0; i < numbers.length; i++) {
             sum = sum + numbers[i];
-            while (sum > 10) {
-                item++;break;
+            item++;
+            if (sum > 10) {
+                System.out.println(item);;break;
                 }
-        }            System.out.println(item);
+        }        
 
     }
 }
