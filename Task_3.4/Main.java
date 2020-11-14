@@ -6,10 +6,10 @@
 
 public class Main {
     public static void main(String[] args) {
-        main(5,11);
+        nums(5,11);
 
     }
-    public static void main (int a, int b) {
+    public static void nums (int a, int b) {
         int sum = a+b;
         if (sum>10) System.out.println("true");
         else System.out.println("false");
