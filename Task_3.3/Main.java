@@ -6,11 +6,13 @@
 
 public class Main {
     public static void main(String[] args) {
-        num(5,5);
+        System.out.println(num(5,5));
 
     }
-    public static void num (int a,int b) {
-        if (a==b) System.out.println("true");
-        else System.out.println("false");
-    }
+
+    public static boolean num(int a, int b) {
+        if (a == b) return true; else return false;}
+
+
+
 }
