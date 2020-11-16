@@ -6,12 +6,12 @@
 
 public class Main {
     public static void main(String[] args) {
-        nums(5,11);
+        System.out.println(nums(5,7));
 
     }
-    public static void nums (int a, int b) {
+    public static boolean nums (int a, int b) {
         int sum = a+b;
-        if (sum>10) System.out.println("true");
-        else System.out.println("false");
+        if (sum>10) return true;
+        else return false;
     }
 }
