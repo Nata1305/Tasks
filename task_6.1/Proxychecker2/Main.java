@@ -33,7 +33,7 @@ public class ProcsyChecer {
                 Thread t1 = new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        System.out.println("Проверяю " + ip + ":" + port);
+                        System.out.println("Проверяю " + ip + " : " + port);
                         try {
                             Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(ip, port));
                             URLConnection connection = new URL("https://vozhzhaev.ru/test.php").openConnection(proxy);
@@ -51,10 +51,10 @@ public class ProcsyChecer {
                             }
                             reader.close();
 
-                            System.out.println(stringBuilder + "Работает!!!");
+                            System.out.println(stringBuilder + " Работает!!!");
 
                         } catch (IOException e) {
-                            System.out.println("ip:" + ip + "не работает");
+                            System.out.println("ip: " + ip + " не работает");
                         }
                     }
                 });
