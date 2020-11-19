@@ -7,9 +7,6 @@ import java.net.URLConnection;
 import java.util.ArrayList;
 public class ProcsyChecer {
     public static void main(String[] args) {
-
-
-
         ArrayList<String> ipList = new ArrayList();
         try {
             FileReader reader = new FileReader("C://Java/adresses.txt");
@@ -21,19 +18,16 @@ public class ProcsyChecer {
                 } else if (c == 10) {
                     ipList.add(proxy);
                     proxy = "";
-
                 } else if (c != 9) proxy = proxy + (char) c;
                 else proxy += ":";
-
             }
             for (String ipString : ipList) {
                 String ip = ipString.split(":")[0];
                 int port = Integer.parseInt(ipString.split(":")[1]);
                 Thread t1 = new Thread(new MyChecker(ip,port));
-                Thread t2 = new Thread(new MyChecker(ip,port));
+               
                 t1.start();
-                t2.start();//checkProxy(ip, port);
-
+               
             }
 
         } catch (IOException e) {
@@ -42,46 +36,42 @@ public class ProcsyChecer {
     }
 }
 class MyChecker implements Runnable  {
-        String ip;
-        int port;
-        public MyChecker(String ip, int port) {
-            this.ip=ip;
-            this.port=port;
-        }
+    String ip;
+    int port;
+    public MyChecker(String ip, int port) {
+        this.ip=ip;
+        this.port=port;
+    }
 
     @Override
     public void run( ) {
 
-            System.out.println("Проверяю " + ip + ":" + port);
-            try {
-                Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(ip, port));
-                URLConnection connection = new URL("https://vozhzhaev.ru/test.php").openConnection(proxy);
-                InputStream is = connection.getInputStream();
+        System.out.println("Проверяю " + ip + ":" + port);
+        try {
+            Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(ip, port));
+            URLConnection connection = new URL("https://vozhzhaev.ru/test.php").openConnection(proxy);
+            InputStream is = connection.getInputStream();
 
-                InputStreamReader reader = new InputStreamReader(is);
-                char[] buffer = new char[256];
-                int c;
+            InputStreamReader reader = new InputStreamReader(is);
+            char[] buffer = new char[256];
+            int c;
 
 
-                StringBuilder stringBuilder = new StringBuilder();
+            StringBuilder stringBuilder = new StringBuilder();
 
-                while ((c = reader.read(buffer)) != -1) {
-                    stringBuilder.append(buffer, 0, c);
-                }
-                reader.close();
-
-                System.out.println(stringBuilder + "Работает!!!");
-
-            } catch (IOException e) {
-                System.out.println("ip:" + ip + "не работает");
+            while ((c = reader.read(buffer)) != -1) {
+                stringBuilder.append(buffer, 0, c);
             }
-        }
+            reader.close();
 
+            System.out.println(stringBuilder + "Работает!!!");
+
+        } catch (IOException e) {
+            System.out.println("ip:" + ip + "не работает");
+        }
     }
 
-
-
-
+}
 
 
 
