@@ -24,13 +24,14 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         ArrayList<String> cityFamily = new ArrayList<>();
+        System.out.println("Введите поочередно города и фамилии:");
         String family = scanner.nextLine().toLowerCase();
         cityFamily.add(family);
 
         while (true) {
             family = scanner.nextLine().toLowerCase();
             if ( cityFamily.indexOf(family)==-1) cityFamily.add(family);
-            else System.out.println(cityFamily.get(cityFamily.indexOf(family)+1));
+            else System.out.println("В этом городе живёт: "+cityFamily.get(cityFamily.indexOf(family)+1));
 
 
             }
