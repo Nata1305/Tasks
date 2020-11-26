@@ -11,9 +11,7 @@ public class Server {
            public static void main(String[] args) {
 
         ArrayList<Socket> clients = new ArrayList<>();
-        ArrayList <String> nameClients=new ArrayList<>();
-
-
+        
 
                Socket socket =null;
         try {
@@ -32,7 +30,7 @@ public class Server {
                         try {
                             out.writeUTF("Напишите свое имя:");
                             String nameClient = in.readUTF();
-                            nameClients.add(nameClient);
+                            
                         while (true){
 
                             System.out.println("Ожидаем сообщение...");
