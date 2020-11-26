@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
         ArrayList<Integer> nums = new ArrayList ();
+        ArrayList<Integer> newnums = new ArrayList ();
 
         nums.add(1);
         nums.add(4);
@@ -18,11 +19,11 @@ public class Main {
         nums.add(6);
 
         System.out.println(nums);
-        ArrayList <Integer> newnums = new ArrayList<>();
-        nums.removeIf(integer -> (integer>0&&integer>10));
+        for (int i = 0; i < nums.size(); i++) {
+            if(nums.get(i)>0&&nums.get(i)<10) newnums.add(nums.get(i));
+        }
 
-       System.out.println(nums);
+       System.out.println(newnums);
     }
 
 }
-
